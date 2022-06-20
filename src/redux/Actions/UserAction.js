@@ -1,5 +1,6 @@
 import { BASE_URL } from "../../api/Config"
 import { LOGIN_USER, LOGOUT_USER } from "../Constants/UserConstants";
+import { GET_USER } from './../Constants/UserConstants';
 
 export const loginUserAction = (email, password) => async (dispach, getState) => {
     var user = await fetch(`${BASE_URL}Auth/login`, {
@@ -28,4 +29,26 @@ export const logoutUserAction = () => async (dispach, getState) =>{
     dispach({
         type: LOGOUT_USER,
     })
+}
+
+export const getUserAction = () => async(dispach,getState) =>{
+    try{
+        var user = JSON.parse(localStorage.getItem("userInfo"))
+        let data = await (await fetch(`${BASE_URL}Auth/getbyemail`,{
+            method: "GET",
+            headers: {
+                "Authorization" : user.token
+            }
+        })).json()
+        dispach({
+            type: GET_USER,
+            payload: data
+        })
+    }
+    catch(error){
+        dispach({
+            type: GET_USER,
+            payload: []
+        })
+    }
 }

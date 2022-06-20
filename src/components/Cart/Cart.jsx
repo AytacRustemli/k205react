@@ -40,6 +40,7 @@ const Cart = () => {
                                             <button >-</button>
                                             <input type="text" defaultValue={product.quantity} />
                                             <button >+</button>
+                                            <button>Delete</button>
                                         </div>
                                         <div className="col-lg-2">{product.price} Total: {product.price * product.quantity}</div>
                                     </div>

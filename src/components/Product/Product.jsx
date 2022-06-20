@@ -10,9 +10,10 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { Rating, Skeleton } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { addToCartAction, getCartItems } from '../../redux/Actions/CartAction';
+import { addToCartAction } from '../../redux/Actions/CartAction';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
   const notify = (productName) => toast(`${productName} sebete elave olundu.`);
@@ -68,7 +69,11 @@ const Product = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Detail</Button>
+                  <Button size="small">
+                    <Link to={'/detail/' + product.id}>
+                    Detail
+                    </Link>
+                    </Button>
                   <Button onClick={() => addToCartHadler(product.id, product.name)} size="small"><AddShoppingCartIcon /> </Button>
                   <Button size="small">
                     <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />

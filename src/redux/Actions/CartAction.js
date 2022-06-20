@@ -25,3 +25,4 @@ export const getCartItems = () => async (dispach, getState) => {
         payload: data
     })
 }
+
