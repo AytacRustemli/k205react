@@ -20,6 +20,7 @@ import { getUserAction, logoutUserAction } from '../../redux/Actions/UserAction'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Dashboard from './../../screens/Dashboard';
+
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -187,7 +188,7 @@ const Header = () => {
                         </MenuItem>
                         <MenuItem onClick={handleCloseUserMenu}>
                           <Typography textAlign="center">
-                              <Link to="dashboard">Dashboard</Link>
+                              <Link to="/dashboard">Dashboard</Link>
                             
                           </Typography>
                         </MenuItem>

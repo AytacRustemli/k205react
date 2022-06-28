@@ -33,11 +33,11 @@ export const logoutUserAction = () => async (dispach, getState) =>{
 
 export const getUserAction = () => async(dispach,getState) =>{
     try{
-        var user = JSON.parse(localStorage.getItem("userInfo"))
+        var user = JSON.parse(localStorage.getItem("userInfo")) 
         let data = await (await fetch(`${BASE_URL}Auth/getbyemail`,{
             method: "GET",
             headers: {
-                "Authorization" : user.token
+                "Authorization" : `Bearer ${user.token}`
             }
         })).json()
         dispach({

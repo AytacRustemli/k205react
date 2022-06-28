@@ -9,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("")
 
   const navigate = useNavigate()
-  const dispach = useDispatch()
+  const dispach = useDispatch() 
 
   const loginHandler = () => {
     dispach(loginUserAction(email, password))
@@ -44,6 +44,8 @@ const Login = () => {
               </div>
               <div className='my-2'>
                 <button onClick={() => loginHandler()} className='btn btn-outline-success'>Daxil ol</button>
+                <button onClick={() => navigate("/register")} className='btn btn-outline-success'>Qeydiyyatdan kec</button>
+
               </div>
             </div>
           </div>
