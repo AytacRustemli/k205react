@@ -4,6 +4,7 @@ import { addCheckOutReducer } from "./Reducers/CheckOutReducer";
 import { getProductsReducer } from "./Reducers/ProductReducer";
 import { UserReducer } from "./Reducers/UserReducer";
 import { OrderReducer } from './Reducers/OrderReducer';
+import { CategoryReducer } from "./Reducers/CategoryReducer";
 
 const {default: thunk} = require("redux-thunk")
 
@@ -12,7 +13,8 @@ const reducer = combineReducers({
     cart: CartReducer,
     user: UserReducer,
     checkout: addCheckOutReducer,
-    order: OrderReducer
+    order: OrderReducer,
+    category : CategoryReducer
 })
 
 
@@ -26,7 +28,8 @@ const initialState ={
     cart:{cartItems:cartItemFromLocalStorage},
     user: {userInfo: userInfoFromLocalStorage},
     checkout: {checkOut: []},
-    order: {orderList : []}
+    order: {orderList : []},
+    category: {categories : []}
 }
 
 

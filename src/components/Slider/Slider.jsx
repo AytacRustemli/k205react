@@ -19,7 +19,7 @@ const Slider = () => {
             getProduct &&
             getProduct.filter(x=>x.isSlider).map((product)=>(
                 <SwiperSlide key={product.id}>
-                    <img width="100%" src={product.coverPhoto} alt="" />
+                    <img width="500px" src={product.coverPhoto} alt="" />
                 </SwiperSlide>
             ))
         }

@@ -11,7 +11,8 @@ const Category = ({catName}) => {
             {
                 getProduct.filter(x=>x.categoryName === catName).map((pro) =>(
                     <div className='col-lg-3' key={pro.id}>
-                        {pro.name}
+                        {pro.name} <br />
+                        <img width="100px" src={pro.coverPhoto} alt="" />
                     </div>
                 ))
             }

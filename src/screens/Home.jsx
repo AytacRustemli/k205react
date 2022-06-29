@@ -1,26 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { BASE_URL } from '../api/Config'
 import Category from '../components/Category/Category'
 import Product from '../components/Product/Product'
 import Slider from '../components/Slider/Slider'
-import { useSelector } from 'react-redux';
+import { getCategoriesAction } from '../redux/Actions/CategoryAction'
 
 const Home = () => {
-  const getProduct = useSelector((state) => state.products.products.message)
 
-  const categories = [
-    {
-      id: 1,
-      name: "Telefon",
-      parentCategoryId: null,
-      parentCategory: null
-    },
-    {
-      id: 2,
-      name: "Planset",
-      parentCategoryId: null,
-      parentCategory: null
-    }
-  ]
+    const { categories } = useSelector((state) => state.category)
+   const dispatch = useDispatch()
+//   const [categories,setCategories] = useState([])
+
+//   const getCategories = async () => {
+//     await fetch(BASE_URL + "Category/getall")
+//         .then((res) => res.json())
+//         .then((data) => setCategories(data));
+//     };
+
+    useEffect(() => {
+      dispatch(getCategoriesAction())
+      }, []);
 
     return (
         <>
@@ -31,9 +31,7 @@ const Home = () => {
                 categories.map((e)=>(
                     <div className="div">
                     <Category catName={e.name} />
-
                     </div>
-
                 ))
             }
         </>
